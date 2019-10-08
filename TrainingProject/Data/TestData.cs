@@ -8,7 +8,7 @@ namespace TrainingProject.Data
 {
     class TestData
     {
-        public static String BaseUrl = "http://testing.todvachev.com";
+        public static string BaseUrl = "http://testing.todvachev.com";
 
         public static class Credentials
         {

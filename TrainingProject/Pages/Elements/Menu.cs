@@ -11,9 +11,9 @@ namespace TrainingProject.Pages.Elements
 {
     class Menu
     {
-        public Menu()
+        public Menu(IWebDriver driver)
         {
-            PageFactory.InitElements(Driver.driver, this);
+            PageFactory.InitElements(driver, this);
         }
 
         [FindsBy(How = How.CssSelector, Using = "#menu-item-25")]

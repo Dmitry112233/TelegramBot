@@ -10,6 +10,6 @@ namespace TrainingProject.DriverPackage
 {
     public static class Driver
     {
-        public static IWebDriver driver { get; set; }
+        public static IWebDriver MyDriver { get; set; }
     }
 }

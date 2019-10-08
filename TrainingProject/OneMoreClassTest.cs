@@ -1,24 +1,19 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
+using MySql.Data.MySqlClient;
 using NUnit.Framework;
 using OpenQA.Selenium;
-using TrainingProject.Dao;
-using TrainingProject.Dao.Bookmaker;
 using TrainingProject.Data;
+using TrainingProject.DataBase;
 using TrainingProject.Pages;
 
 namespace TrainingProject
 {
     [Parallelizable]
-    class EntryPoint : BaseTest
+    public class OneMoreClassTest : BaseTest
     {
-        public static void Main()
-        {
-        }
-
         [Test]
-        public void TestOne()
+        public void TestTwo()
         {
             HomePage homePage = new HomePage(Driver);
 
@@ -36,13 +31,20 @@ namespace TrainingProject
         }
         
         [Test]
-        public void TestDataBase()
+        public void TestDataBaseTwo()
         {
-            List<Bookmaker> bookmakers = DaoFactory.getBookmakerMySqlDao().getAllBookmakers();
-            foreach (Bookmaker bookmaker in bookmakers)
+            var dbCon = DBConnection.Instance();
+            if (dbCon.IsConnect())
             {
-                Console.WriteLine(bookmaker.Name);
-                Console.WriteLine(bookmaker.Link);
+                string query = "SELECT * FROM BOOKMAKERS";
+                var cmd = new MySqlCommand(query, dbCon.Connection);
+                var reader = cmd.ExecuteReader();
+                while(reader.Read())
+                {
+                    string bookmakerName = reader.GetString("Name");
+                    Console.WriteLine(bookmakerName);
+                }
+                dbCon.Close();
             }
         }
     }
