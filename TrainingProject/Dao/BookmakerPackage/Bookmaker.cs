@@ -1,11 +1,16 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations.Schema;
 
-namespace TrainingProject.Dao.Bookmaker
+namespace TrainingProject.Dao.BookmakerPackage
 {
+    [Table("BOOKMAKERS")]
     public class Bookmaker
     {
         private string name;
         private string link;
+
+
+        public int Id { get; set; }
 
         public string Name
         {

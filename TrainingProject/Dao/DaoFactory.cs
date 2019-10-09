@@ -1,4 +1,4 @@
-﻿using TrainingProject.Dao.Bookmaker;
+﻿using TrainingProject.Dao.BookmakerPackage;
 
 namespace TrainingProject.Dao
 {

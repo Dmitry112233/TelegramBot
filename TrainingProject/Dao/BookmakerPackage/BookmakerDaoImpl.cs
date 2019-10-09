@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using MySql.Data.MySqlClient;
 using TrainingProject.DataBase;
 
-namespace TrainingProject.Dao.Bookmaker
+namespace TrainingProject.Dao.BookmakerPackage
 {
     public class BookmakerDaoImpl : IBookmakerDao
     {

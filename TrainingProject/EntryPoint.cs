@@ -4,7 +4,7 @@ using System.IO;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using TrainingProject.Dao;
-using TrainingProject.Dao.Bookmaker;
+using TrainingProject.Dao.BookmakerPackage;
 using TrainingProject.Data;
 using TrainingProject.Pages;
 
@@ -43,6 +43,21 @@ namespace TrainingProject
             {
                 Console.WriteLine(bookmaker.Name);
                 Console.WriteLine(bookmaker.Link);
+            }
+        }
+        
+        [Test]
+        public void EntityFrameTest()
+        {
+            using(BookmakerContext db = new BookmakerContext())
+            {
+                // получаем объекты из бд и выводим на консоль
+                var bookmakers = db.Bookmakers;
+                Console.WriteLine("Список объектов:");
+                foreach(Bookmaker b in bookmakers)
+                {
+                    Console.WriteLine(b.Name);
+                }
             }
         }
     }

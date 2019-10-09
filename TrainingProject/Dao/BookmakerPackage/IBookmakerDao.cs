@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace TrainingProject.Dao.Bookmaker
+namespace TrainingProject.Dao.BookmakerPackage
 {
     public interface IBookmakerDao
     {
