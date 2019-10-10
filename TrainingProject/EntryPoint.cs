@@ -1,8 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using NUnit.Framework;
 using OpenQA.Selenium;
+using RestSharp;
+using TrainingProject.Api;
 using TrainingProject.Dao;
 using TrainingProject.Dao.BookmakerPackage;
 using TrainingProject.Data;
@@ -60,5 +64,23 @@ namespace TrainingProject
                 }
             }
         }
+        
+        [Test]
+        public void ApiRequestTest()
+        {
+            RestApiUtils restApiUtils = new RestApiUtils();
+            IRestResponse response = restApiUtils.postRequest(EndPints.Peoples);
+
+            JObject jo = JObject.Parse(response.Content);
+            JArray jArray= (JArray)jo["contextWrites"]["to"][0]["results"];
+            
+            List<People> peoples = JsonConvert.DeserializeObject<List<People>>(jArray.ToString());
+
+            foreach (People p  in peoples)
+            {
+                Console.WriteLine(p.Name + " " + p.SkinColor);
+            }
+        }
+        
     }
 }

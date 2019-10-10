@@ -65,6 +65,10 @@
       <HintPath>..\packages\MySql.Data.Entity.6.9.12\lib\net45\MySql.Data.Entity.EF6.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3-beta2\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="nunit-agent, Version=3.10.0.0, Culture=neutral, PublicKeyToken=null">
       <HintPath>..\packages\NUnit.Engine.3.10.0\lib\net20\nunit-agent.exe</HintPath>
       <Private>True</Private>
@@ -90,6 +94,10 @@
     </Reference>
     <Reference Include="Renci.SshNet, Version=2016.1.0.0, Culture=neutral, PublicKeyToken=1cee9f8bde3db106">
       <HintPath>..\packages\SSH.NET.2016.1.0\lib\net40\Renci.SshNet.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="RestSharp, Version=106.6.10.0, Culture=neutral, PublicKeyToken=598062e77f915f75">
+      <HintPath>..\packages\RestSharp.106.6.10\lib\net452\RestSharp.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Savage.Data, Version=5.4.2.0, Culture=neutral, PublicKeyToken=null">
@@ -118,6 +126,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -132,6 +141,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Api\EndPints.cs" />
+    <Compile Include="Api\People.cs" />
+    <Compile Include="Api\RestApiUtils.cs" />
     <Compile Include="BaseTest.cs" />
     <Compile Include="Dao\BookmakerPackage\Bookmaker.cs" />
     <Compile Include="Dao\BookmakerPackage\BookmakerContext.cs" />
