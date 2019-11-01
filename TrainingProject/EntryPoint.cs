@@ -82,5 +82,17 @@ namespace TrainingProject
             }
         }
         
+        [Test]
+        public void piramidTest()
+        {
+            int n = 7;
+            string x = "x";
+            for (int i = 1; i < n; i++)
+            {
+                Console.WriteLine(x);
+                x += "x";
+            }
+        }
+        
     }
 }
