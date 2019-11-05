@@ -9,24 +9,24 @@ namespace TelegramBot
 {
     public class GariAction : BaseAction
     {
-        private  string dollar;
-        private  string cocs;
-        private  string heroin;
-        private  string nark;
+        private static string dollar;
+        private static string cocs;
+        private static string heroin;
+        private static string nark;
 
-        public GariAction()
+        static GariAction()
         {
-            dollar = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.FullName +
-                     "\\resources\\dollar.jpg";
-            cocs = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.FullName +
-                   "\\resources\\cocs.png";
-            heroin = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.FullName +
-                     "\\resources\\heroin.jpg";
-            nark = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.FullName +
-                   "\\resources\\nark.png";
+            dollar = Directory.GetParent(Directory.GetCurrentDirectory()).FullName +
+                     "\\TelegramBot\\resources\\dollar.jpg";
+            cocs = Directory.GetParent(Directory.GetCurrentDirectory()).FullName +
+                   "\\TelegramBot\\resources\\cocs.png";
+            heroin = Directory.GetParent(Directory.GetCurrentDirectory()).FullName +
+                     "\\TelegramBot\\resources\\heroin.jpg";
+            nark = Directory.GetParent(Directory.GetCurrentDirectory()).FullName +
+                   "\\TelegramBot\\resources\\nark.png";
         }
 
-        public async void Snuff(MessageEventArgs e)
+        public async static Task Snuff(MessageEventArgs e)
         {
             Thread.Sleep(1000);
             
@@ -45,7 +45,7 @@ namespace TelegramBot
             await Bot.SendTextMessageAsync(e.Message.Chat.Id, "ПРОЖЕБАНА!");
         }
 
-        public async void MakeHero(MessageEventArgs e)
+        public async static Task MakeHero(MessageEventArgs e)
         {
             Thread.Sleep(1000);
             
@@ -59,7 +59,7 @@ namespace TelegramBot
             await Bot.SendTextMessageAsync(e.Message.Chat.Id, "КОНГРАТИЛЕЙШНС, ТЫ ВЫЙГРАЛ НО СЛУЧАЙНО УМЕР!");
         }
 
-        public async void SendCharacterPhoto(MessageEventArgs e)
+        public async static Task SendCharacterPhoto(MessageEventArgs e)
         {
             Thread.Sleep(1000);
             
@@ -69,7 +69,7 @@ namespace TelegramBot
             }
         }
 
-        public async void ChooseHowToHigh(MessageEventArgs e)
+        public async static Task ChooseHowToHigh(MessageEventArgs e)
         {
             Thread.Sleep(1000);
             

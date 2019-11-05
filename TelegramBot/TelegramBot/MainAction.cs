@@ -1,31 +1,37 @@
 ﻿using System;
+using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
-using Telegram.Bot;
 using Telegram.Bot.Args;
-using Telegram.Bot.Types;
-using Telegram.Bot.Types.Enums;
 using Telegram.Bot.Types.ReplyMarkups;
 
 namespace TelegramBot
 {
     public class MainAction : BaseAction
     {
+
         
-        public async void SendMessage(MessageEventArgs e, string message)
+
+        public async static Task SendMessage(MessageEventArgs e, string message)
         {
             Thread.Sleep(1000);
             await  Bot.SendTextMessageAsync(e.Message.Chat.Id, message);
         }
+        
+        public async static Task SendMessage(long id, string message)
+        {
+            Thread.Sleep(1000);
+            await  Bot.SendTextMessageAsync(id, message);
+        }
 
         public void ChangeHandler(EventHandler<MessageEventArgs> toDelete,
-            EventHandler<Telegram.Bot.Args.MessageEventArgs> toAdd)
+            EventHandler<MessageEventArgs> toAdd)
         {
             Bot.OnMessage -= toDelete;
             Bot.OnMessage += toAdd;
         }
 
-        public async void StarAgain(MessageEventArgs e)
+        public async static Task StarAgain(MessageEventArgs e)
         {
             Thread.Sleep(2000);
             
@@ -40,7 +46,7 @@ namespace TelegramBot
                 replyMarkup: ReplyKeyboardActionG);
         }
 
-        public async void ChooseCharacter(MessageEventArgs e)
+        public async static Task ChooseCharacter(MessageEventArgs e)
         {
             ReplyKeyboardMarkup ReplyKeyboardPerosn = new[]
             {
@@ -53,9 +59,9 @@ namespace TelegramBot
                 replyMarkup: ReplyKeyboardPerosn);
         }
 
-        public async void DefaultAction(MessageEventArgs e)
+        public async static Task DefaultAction(MessageEventArgs e)
         {
-            const string usage = @"Usage: /Play  - жми если не пидр";
+            const string usage = @"Usage: /start  - начать квиз";
             await   Bot.SendTextMessageAsync(
                 e.Message.Chat.Id,
                 usage,
