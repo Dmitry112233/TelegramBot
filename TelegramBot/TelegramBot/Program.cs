@@ -80,25 +80,25 @@ namespace TelegramBot
             {
                 await MainAction.ChooseCharacter(e);
             }
-            else if (e.Message.Type == MessageType.Text && e.Message.Text.Equals("Гари"))
+            else if (e.Message.Type == MessageType.Text && e.Message.Text.Equals("hi"))
             {
-                await MainAction.SendMessage(e, "ПОЗДРАВЛЯЮ, ТЕПЕРЬ ТЫ НАРК!");
+                await MainAction.SendMessage(e, "you are awesome");
 
                 await GariAction.SendCharacterPhoto(e);
 
                 await GariAction.ChooseHowToHigh(e);
             }
-            else if (e.Message.Type == MessageType.Text && e.Message.Text.Equals("Понюхать"))
+            else if (e.Message.Type == MessageType.Text && e.Message.Text.Equals("1123123"))
             {
-                await MainAction.SendMessage(e, "ДЕРЖИ БРАТИШКА");
+                await MainAction.SendMessage(e, "asdasd");
 
                 await GariAction.Snuff(e);
 
                 await MainAction.StarAgain(e);
             }
-            else if (e.Message.Type == MessageType.Text && e.Message.Text.Equals("Завариться"))
+            else if (e.Message.Type == MessageType.Text && e.Message.Text.Equals("shiiish"))
             {
-                await MainAction.SendMessage(e, "ДЕРЖИ БРАТИШКА");
+                await MainAction.SendMessage(e, "don't do drugs broo");
 
                 await GariAction.MakeHero(e);
 
